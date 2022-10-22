@@ -52,3 +52,6 @@ production:
   database: meal_record_production
   username: meal_record
   password: <%= ENV['MEAL_RECORD_DATABASE_PASSWORD'] %>
+  username: root
+  password: <%= ENV['DATABASE_PASSWORD'] %>
+  socket: /var/lib/mysql/mysql.sock
