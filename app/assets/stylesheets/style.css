@@ -1,0 +1,56 @@
+/******************************************************** 
+ヘッダー
+********************************************************/
+header {
+  height: calc(100vh - 90vh);
+  width: 100vw;
+  background-color:lightgray;
+  padding: 0 100px 0 30px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.header-logo {
+  font-size: 36px;
+  font-weight: 600;
+  /* line-height: 50px; */
+  padding: 10px 0 0 0;
+}
+
+ul,a {
+  list-style: none;
+  display: flex;
+  justify-content: space-around;
+  line-height: 30px;
+  color: #000000;
+  text-decoration: none;
+}
+
+li {
+  font-size: 22px;
+  font-weight: 600;
+  margin-left: 70px;
+}
+
+/******************************************************** 
+ フッター
+ ********************************************************/
+
+main {
+  height: calc(100vh - 100px -70px);
+  width: 100vw;
+  background-color: darkgray;
+}
+
+ /******************************************************** 
+ フッター
+ ********************************************************/
+
+ footer {
+  height: calc(100vh - 90vh);
+  width: 100vw;
+  background-color: #FAFAFA;
+  display: flex;
+  justify-content: center;
+  line-height: 70px;
+}

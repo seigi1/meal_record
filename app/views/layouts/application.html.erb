@@ -4,12 +4,26 @@
     <title>MealRecord</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css">
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
+    <header>
+      <div class="header-logo" ><%= link_to "MealRecord", root_path %></div>
+        <ul>
+          <% if user_signed_in?%>
+            <li class="header-list"><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>
+          <% else %>
+            <li class="header-list"><%= link_to "新規登録", new_user_registration_path %></li>
+            <li class="header-list"><%= link_to "ログイン", new_user_session_path %></li>
+          <% end %>
+        </ul>
+      
+    </header>
     <%= yield %>
+    <footer>
+    </footer>
   </body>
 </html>

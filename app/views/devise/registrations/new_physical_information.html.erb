@@ -1,0 +1,31 @@
+<h2>身体情報登録</h2>
+
+<%= form_for @physical_information do |f| %>
+  <%= render "devise/shared/error_messages", resource: @physical_information %>
+
+  <div class="field">
+    <%= f.label :age %><br />
+    <%= f.text_field :age %>
+  </div>
+
+  <div class="field">
+    <%= f.label :body_heigth %><br />
+    <%= f.text_field :body_heigth %>
+  </div>
+
+  <div class="field">
+    <%= f.label :body_weigth %><br />
+    <%= f.text_field :body_weigth %>
+  </div>
+
+  <div class="field">
+    <%= f.label :basal_metabolism %><br />
+    <%= f.text_field :basal_metabolism %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "Sign up" %>
+  </div>
+<% end %>
+
+<%= render "devise/shared/links" %>
