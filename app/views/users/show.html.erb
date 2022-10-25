@@ -1,0 +1,52 @@
+<div class="main">
+  <%# 身体情報一覧 %>
+    <div class="user">
+      <%= "#{@user.nickname}さんの身体情報" %>
+    </div>
+        <div class="information">
+          <div><%= "年齢：#{@user.physical_information.age}歳" %></div>
+          <div><%= "身長：#{@user.physical_information.body_heigth}cm" %></div>
+          <div><%= "体重：#{@user.physical_information.body_weigth}kg" %></div>
+          <div><%= "基礎代謝量：#{@user.physical_information.basal_metabolism}kcal" %></div>
+        </div>
+    
+
+  <%# PFCバランスの計算式  %>
+    <% calorie = @user.physical_information.basal_metabolism %>
+    <% carbohydrate = 50 %>
+    <% protein = @user.physical_information.basal_metabolism * 0.3 / 4 %>
+    <% fat = ((calorie - (carbohydrate * 4) - (protein * 4)) / 9)  %>
+
+  <%# PFCバランス一覧 %>
+    <div class="user">
+      <%= "#{@user.nickname}さんの減量用PFCバランス" %>
+    </div>
+    <div class="pfc">
+        <div class="information">
+          <div><%= "カロリー量：#{calorie}kcal" %></div>
+          <div><%= "炭水化物量：#{carbohydrate}g" %></div>
+          <div><%= "タンパク質量：#{protein}g" %></div>
+          <div><%= "脂質量：#{fat}g" %></div>
+        </div>
+        <%# PFCバランスのグラフ %>
+        <div class="pfc-graph">
+          <% @pfc = {"炭水化物量" => carbohydrate, "タンパク質量" => protein, "脂質量" => fat} %>
+          <%= pie_chart @pfc %>
+        </div>
+     </div>
+
+  <%# 減量推移の計算式 %>
+    <% w = @user.physical_information.body_weigth %>
+    <% @weigth_change = {} %>
+    <% 24.times do |i| %>
+    <% @weigth_change.merge!("#{i + 1}週間後" => (w = (w * 0.985).round(2))) %>
+    <% end %>
+
+  <%# 減量推移のグラフ %>
+    <div class="user">
+      <%= "#{@user.nickname}さんの目標体重推移" %>
+    </div>
+    <div class="weigth-change-graph">
+      <%= line_chart @weigth_change, min: 40, max: 100 %>
+    </div>
+</div>

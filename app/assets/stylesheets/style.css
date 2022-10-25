@@ -33,13 +33,28 @@ li {
 }
 
 /******************************************************** 
- フッター
+ ユーザーマイページ
  ********************************************************/
+.user {
+  font-size: 24px;
+  font-weight: 300;
+  margin: 20px 0 20px 0;
+  text-decoration:underline;
+}
 
-main {
-  height: calc(100vh - 100px -70px);
-  width: 100vw;
-  background-color: darkgray;
+.information {
+  font-size: 20px;
+  font-weight: 200;
+  
+}
+
+.pfc {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.pfc-graph {
+  margin-left: 300px;
 }
 
  /******************************************************** 
