@@ -5,5 +5,5 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   validates :nickname ,presence: true
   has_one :physical_information
-  has_one :meal_record
+  has_many :records
 end
