@@ -1,0 +1,7 @@
+<% if user_signed_in?%>
+  <%# <div><%= "ようこそ#{@user.nickname}さん"%>
+  <div><%= link_to "マイページ", "/users/#{current_user.id}" %></div>
+  <div><%= link_to "食事登録", new_record_path %></div>
+<% else %>
+  <h2>ログインしていません</h2>
+<% end %>
