@@ -1,24 +1,81 @@
-# README
+# アプリケーション名
+meal_record
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# アプリケーション概要
+減量をサポートする健康アプリ。
+個人の身体情報から減量に最適な栄養素バランス、減量推移目標を自動計算。
+日々の食事を登録、視覚化することにより減量をサポート。
 
-Things you may want to cover:
+# URL
+[https://meal-record-38166.herokuapp.com/](https://meal-record-38166.herokuapp.com/)
 
-* Ruby version
+# テスト用アカウント
+* Basic認証ID：admin
+* Basic認証パスワード：2222
+* メールアドレス：test@test
+* パスワード：123456
 
-* System dependencies
+# 利用方法
+## 
 
-* Configuration
+# アプリケーションを作成した背景
+* 既存の健康アプリをより具体的に、より続けやすく
+既存の健康アプリは食事記録を行うものの、何を食べていいか分かりにくく具体性に乏しい。また利用者の嗜好性が食事の選択に大きな影響を与える。
 
-* Database creation
+* 好きな物を好きなだけ食べていると太る
+食事には栄養摂取、幸福感(ストレス解消)、コミュニケーションの3つの要素があり、普段の食事は幸福感を優先させて選択される事が多い。しかしながら、その選択を続けると健康を損なったり、肥満につながったりする可能性が高い。
+更に幸福感を優先することで、その本人の嗜好性から選択が大いに偏る可能性がある。
 
-* Database initialization
+* 課題解決
+下記の機能を実装したアプリを作成することで減量におけるサポートをしたい
+1. 個人に合わせた栄養素バランス提案
+2. 食事情報の視覚化
+3. 食事のレコメンド
 
-* How to run the test suite
 
-* Services (job queues, cache servers, search engines, etc.)
+# 洗い出した要件
+[要件を定義したシート](https://docs.google.com/spreadsheets/d/1kHsB8dgxOVffypxHqoaWG_zDc1r-2zPZ95HQBnr_qVs/edit#gid=982722306)
 
-* Deployment instructions
+# 実装予定の機能
+現在は編集、削除機能を実装中。
+今後は食事記録登録におけるタグ付け機能、タグ付け検索によるレコメンド機能を実装予定。
+RSpecによるテストコードも実装予定。
 
-* ...
+# データベース設計
+[![Image from Gyazo](https://i.gyazo.com/856d8a651750ccc307b620b8865c805c.png)](https://gyazo.com/856d8a651750ccc307b620b8865c805c)
+
+# 画面遷移図
+[![Image from Gyazo](https://i.gyazo.com/534448c946ddbff110f08e4562d8fb58.png)](https://gyazo.com/534448c946ddbff110f08e4562d8fb58)
+
+# 開発環境
+1. フロントエンド
+* HTML
+* CSS
+* Javascript
+
+2. バックエンド
+* Ruby 2.6.5
+* Ruby on Rails 6.0.0
+
+3. インフラ
+* heroku
+
+4. テスト
+* RSpec
+
+5. テキストエディタ
+* VScode
+
+6. タスク管理
+* GitHub
+
+# ローカルでの動作方法
+以下のコマンドを順に実行。
+% git clone https://github.com/meal-record-38166
+% cd meal-record-38166
+% bundle install
+% yarn install
+
+# 工夫したポイント
+現職ではお客様に合わせて減量に最適な栄養素バランス、減量推移目標を都度手動で計算しています。
+その内容を自動計算化し、食事登録機能、一覧表示、検索機能を実装しました。食事登録昨日などは既存のアプリでもありますので、一覧表示における時間別カロリー量表示を工夫して見ました。今後は最適な栄養素バランスに合わせたレコメンド機能などを実装していきたいと考えています。
