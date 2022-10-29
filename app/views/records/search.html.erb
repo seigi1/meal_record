@@ -1,0 +1,56 @@
+<%# 食事情報のデータ取得 %>
+  <% calorie = [] %>
+  <% fat = [] %>
+  <% carbohydrate = [] %>
+  <% protein = [] %>
+  <% meal_time = [] %>
+  <% nickname = [] %>
+  <% @records.each do |records| %>
+    <% if current_user.id == records.user_id %>
+      <% calorie << records.calorie %>
+      <% fat << records.fat %>
+      <% carbohydrate << records.carbohydrate %>
+      <% protein << records.protein %>
+      <% meal_time << records.meal_time %>
+      <% nickname << records.user.nickname %> 
+    <% end %>
+  <% end %>
+
+<div>
+  <%# 食事情報の表示 %>
+  <div class="information-btn">
+    <div class="user">
+      <%= "#{nickname[0]}さんの食事記録" %>
+    </div>
+    <div class="user-btn">
+      <%= link_to "編集" %>
+    </div>
+    <div class="user-btn">
+      <%= link_to "削除" %>
+    </div>
+  </div>
+  <div class="meal_records">
+    <div class="information">
+      <div><%= "カロリー量：#{calorie.sum}kcal" %></div>
+      <div><%= "炭水化物量：#{carbohydrate.sum}g" %></div>
+      <div><%= "タンパク質量：#{protein.sum}g" %></div>
+      <div><%= "脂質量：#{fat.sum}g" %></div>
+    </div>
+    <div class="records-image">
+      <% @records.each do |records| %>
+      <%= image_tag records.image.variant(resize: '250x250') %>
+      <% end %>
+    </div>
+   </div>
+  <%# 食事記録のグラフ %>
+    <div class="user">
+      <%= "#{nickname[0]}さんのボリュームバランス" %>
+    </div>
+    <div>
+      <% @meal = {} %>
+      <% @records.each do |records| %>
+        <% @meal.merge!("#{records.meal_time}" => records.calorie ) %>
+      <% end %>
+      <%= bar_chart @meal, xmin: 0, xmax: 3000 %>
+    </div>
+</div>

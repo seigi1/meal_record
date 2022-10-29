@@ -4,7 +4,7 @@ class RecordsController < ApplicationController
   
     def index
       @records = Record.all
-      # @user = User.find(params[:user_id])
+      # @records = Record.find(params[:id])
     end
   
     def new
@@ -13,6 +13,7 @@ class RecordsController < ApplicationController
   
     def create
       @records = Record.new(records_params)
+      binding.pry
       if @records.save
         redirect_to root_path
       else
@@ -20,10 +21,19 @@ class RecordsController < ApplicationController
       end
     end
   
-    # def search
-    #   @meal_records = MealRecord.search(params[:meal_time]).order("meal_time ASC")
-    # end
+    def search
+      @records = Record.search(params[:meal_time]).order("meal_time ASC")
+    end
   
+    def edit
+    end
+
+    def update
+    end
+
+    def destroy
+    end
+
     private
   
     def records_params
