@@ -1,7 +1,25 @@
-<% if user_signed_in?%>
-  <%# <div><%= "ようこそ#{@user.nickname}さん"%>
-  <div><%= link_to "マイページ", "/users/#{current_user.id}" %></div>
-  <div><%= link_to "食事登録", new_record_path %></div>
-<% else %>
-  <h2>ログインしていません</h2>
-<% end %>
+<div class="index-main">
+      <div class="main-hero">
+        <%= image_tag "トップ画meal_record.jpg", class:"hero-image" %>
+        <div class="main-content">
+        <% if user_signed_in?%>
+          <div class="maintext">
+            <div class="maintext-main">
+              <%= link_to "マイページ", "/users/#{current_user.id}" %>
+            </div>
+            <div class="maintext-main">
+              <%= link_to "食事登録", new_record_path %>
+            </div>
+          </div>
+          <div class="maintext-sub">
+            <%= form_with(url: search_records_path, local: true, method: :get, class: "search-form") do |form| %>
+            <%= form.date_field :meal_time, class: "search-input" %>
+            <%= form.submit "検索", class: "search-btn" %>
+            <% end %>
+          </div>
+          <% else %>
+            <h2>ログインしていません</h2>
+          <% end %>
+          </div>
+      </div>
+</div>

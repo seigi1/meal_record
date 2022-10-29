@@ -8,10 +8,10 @@ Rails.application.routes.draw do
   end
   root to: 'records#index'
   resources :users, only: :show
-  resources :records, only: [:index, :new, :create]
-  # resources :meal_records do
-  #   collection do
-  #     get 'search'
-  #   end
-  # end
+  resources :records, only: [:index, :new, :create, :edit, :update, :destroy]
+  resources :records do
+    collection do
+      get 'search'
+    end
+  end
 end
