@@ -13,7 +13,7 @@ meal_record
 * Basic認証ID：admin
 * Basic認証パスワード：2222
 * メールアドレス：test@test
-* パスワード：123456
+* パスワード：111111
 
 # 利用方法
 ## 
