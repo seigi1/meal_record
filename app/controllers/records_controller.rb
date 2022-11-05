@@ -23,12 +23,18 @@ class RecordsController < ApplicationController
   
     def search
       @records = Record.search(params[:meal_time]).order("meal_time ASC")
+      # binding.pry
+      # @records = Record.find(params[:id])
+      # @records = Record.all
     end
   
     def edit
+      @records = Record.find(params[:id])
     end
 
     def update
+      records = Record.find(params[:id])
+      records.update(records_params)
     end
 
     def destroy

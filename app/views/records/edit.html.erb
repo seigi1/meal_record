@@ -1,0 +1,44 @@
+<h2>食事情報編集</h2>
+
+<%= form_with model:@records, local: true do |f| %>
+  <%= render "devise/shared/error_messages", resource:@records %>
+  
+  <div class="field">
+    <%= f.label "食事時間" %><br />
+    <%= f.datetime_field :meal_time %>
+  </div>
+
+  <div class="field">
+    <%= f.label "品名" %><br />
+    <%= f.text_field :meal_name %>
+  </div>
+
+  <div class="field">
+    <%= f.label "カロリー量" %><br />
+    <%= f.text_field :calorie %>
+  </div>
+
+  <div class="field">
+    <%= f.label "炭水化物量" %><br />
+    <%= f.text_field :carbohydrate %>
+  </div>
+
+  <div class="field">
+    <%= f.label "脂質量" %><br />
+    <%= f.text_field :fat %>
+  </div>
+
+  <div class="field">
+    <%= f.label "タンパク質量" %><br />
+    <%= f.text_field :protein %>
+  </div>
+
+  <div class="field">
+    <%= f.label "写真登録" %><br />
+    <%= f.file_field :image, id:"item-image" %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "編集" %>
+  </div>
+<% end %>
