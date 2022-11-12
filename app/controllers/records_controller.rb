@@ -4,7 +4,6 @@ class RecordsController < ApplicationController
   
     def index
       @records = Record.all
-      # @records = Record.find(params[:id])
     end
   
     def new
@@ -23,9 +22,6 @@ class RecordsController < ApplicationController
   
     def search
       @records = Record.search(params[:meal_time]).order("meal_time ASC")
-      # binding.pry
-      # @records = Record.find(params[:id])
-      # @records = Record.all
     end
   
     def edit
@@ -38,6 +34,8 @@ class RecordsController < ApplicationController
     end
 
     def destroy
+       records = Record.find(params[:id])
+       records.destroy
     end
 
     private
